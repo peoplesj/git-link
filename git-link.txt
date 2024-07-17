@@ -1,0 +1,8 @@
+alias git-link='remote_url=$(git remote get-url origin); \
+if [[ $remote_url == git@* ]]; then \
+  user_repo=$(echo $remote_url | sed -e "s/git@github.com://" -e "s/.git//"); \
+  https_url="https://www.github.com/$user_repo"; \
+else \
+  https_url=$remote_url; \
+fi; \
+echo $https_url'
